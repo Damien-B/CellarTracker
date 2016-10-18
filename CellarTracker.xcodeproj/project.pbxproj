@@ -13,6 +13,17 @@
 		6D0A06661D9D20480091B5C3 /* CellarTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D0A06641D9D20480091B5C3 /* CellarTracker.xcdatamodeld */; };
 		6D0A06681D9D20480091B5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0A06671D9D20480091B5C3 /* Assets.xcassets */; };
 		6D0A066B1D9D20480091B5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0A06691D9D20480091B5C3 /* LaunchScreen.storyboard */; };
+		6D1522D01DAC31B400709002 /* Type+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522C81DAC31B400709002 /* Type+CoreDataClass.swift */; };
+		6D1522D11DAC31B400709002 /* Type+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522C91DAC31B400709002 /* Type+CoreDataProperties.swift */; };
+		6D1522D21DAC31B400709002 /* Bottle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CA1DAC31B400709002 /* Bottle+CoreDataClass.swift */; };
+		6D1522D31DAC31B400709002 /* Bottle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CB1DAC31B400709002 /* Bottle+CoreDataProperties.swift */; };
+		6D1522D41DAC31B400709002 /* Domaine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CC1DAC31B400709002 /* Domaine+CoreDataClass.swift */; };
+		6D1522D51DAC31B400709002 /* Domaine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CD1DAC31B400709002 /* Domaine+CoreDataProperties.swift */; };
+		6D1522D61DAC31B400709002 /* Price+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CE1DAC31B400709002 /* Price+CoreDataClass.swift */; };
+		6D1522D71DAC31B400709002 /* Price+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1522CF1DAC31B400709002 /* Price+CoreDataProperties.swift */; };
+		6D5E7C861D9DB97B0086EBC5 /* WineBottleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5E7C851D9DB97B0086EBC5 /* WineBottleTableViewCell.swift */; };
+		6D9FDAC91D9DB18100667389 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FDAC81D9DB18100667389 /* CoreDataManager.swift */; };
+		6DC386351DB4BDE700364BC4 /* BottleCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC386341DB4BDE700364BC4 /* BottleCreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		6D0A06671D9D20480091B5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D0A066A1D9D20480091B5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D0A066C1D9D20480091B5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D1522C81DAC31B400709002 /* Type+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Type+CoreDataClass.swift"; path = "models/Type+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D1522C91DAC31B400709002 /* Type+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Type+CoreDataProperties.swift"; path = "models/Type+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D1522CA1DAC31B400709002 /* Bottle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bottle+CoreDataClass.swift"; path = "models/Bottle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D1522CB1DAC31B400709002 /* Bottle+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bottle+CoreDataProperties.swift"; path = "models/Bottle+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D1522CC1DAC31B400709002 /* Domaine+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Domaine+CoreDataClass.swift"; path = "models/Domaine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D1522CD1DAC31B400709002 /* Domaine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Domaine+CoreDataProperties.swift"; path = "models/Domaine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D1522CE1DAC31B400709002 /* Price+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Price+CoreDataClass.swift"; path = "models/Price+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D1522CF1DAC31B400709002 /* Price+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Price+CoreDataProperties.swift"; path = "models/Price+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D5E7C851D9DB97B0086EBC5 /* WineBottleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WineBottleTableViewCell.swift; sourceTree = "<group>"; };
+		6D9FDAC81D9DB18100667389 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6DC386341DB4BDE700364BC4 /* BottleCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleCreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +78,12 @@
 		6D0A065C1D9D20480091B5C3 /* CellarTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6D0A06861D9D5A3A0091B5C3 /* models */,
 				6D0A065D1D9D20480091B5C3 /* AppDelegate.swift */,
 				6D0A065F1D9D20480091B5C3 /* ViewController.swift */,
+				6D9FDAC81D9DB18100667389 /* CoreDataManager.swift */,
+				6D5E7C851D9DB97B0086EBC5 /* WineBottleTableViewCell.swift */,
+				6DC386341DB4BDE700364BC4 /* BottleCreationViewController.swift */,
 				6D0A06611D9D20480091B5C3 /* Main.storyboard */,
 				6D0A06671D9D20480091B5C3 /* Assets.xcassets */,
 				6D0A06691D9D20480091B5C3 /* LaunchScreen.storyboard */,
@@ -65,6 +91,21 @@
 				6D0A06641D9D20480091B5C3 /* CellarTracker.xcdatamodeld */,
 			);
 			path = CellarTracker;
+			sourceTree = "<group>";
+		};
+		6D0A06861D9D5A3A0091B5C3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				6D1522C81DAC31B400709002 /* Type+CoreDataClass.swift */,
+				6D1522C91DAC31B400709002 /* Type+CoreDataProperties.swift */,
+				6D1522CA1DAC31B400709002 /* Bottle+CoreDataClass.swift */,
+				6D1522CB1DAC31B400709002 /* Bottle+CoreDataProperties.swift */,
+				6D1522CC1DAC31B400709002 /* Domaine+CoreDataClass.swift */,
+				6D1522CD1DAC31B400709002 /* Domaine+CoreDataProperties.swift */,
+				6D1522CE1DAC31B400709002 /* Price+CoreDataClass.swift */,
+				6D1522CF1DAC31B400709002 /* Price+CoreDataProperties.swift */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +181,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5E7C861D9DB97B0086EBC5 /* WineBottleTableViewCell.swift in Sources */,
 				6D0A06601D9D20480091B5C3 /* ViewController.swift in Sources */,
+				6D1522D51DAC31B400709002 /* Domaine+CoreDataProperties.swift in Sources */,
 				6D0A06661D9D20480091B5C3 /* CellarTracker.xcdatamodeld in Sources */,
+				6D1522D21DAC31B400709002 /* Bottle+CoreDataClass.swift in Sources */,
+				6DC386351DB4BDE700364BC4 /* BottleCreationViewController.swift in Sources */,
 				6D0A065E1D9D20480091B5C3 /* AppDelegate.swift in Sources */,
+				6D9FDAC91D9DB18100667389 /* CoreDataManager.swift in Sources */,
+				6D1522D61DAC31B400709002 /* Price+CoreDataClass.swift in Sources */,
+				6D1522D71DAC31B400709002 /* Price+CoreDataProperties.swift in Sources */,
+				6D1522D11DAC31B400709002 /* Type+CoreDataProperties.swift in Sources */,
+				6D1522D41DAC31B400709002 /* Domaine+CoreDataClass.swift in Sources */,
+				6D1522D01DAC31B400709002 /* Type+CoreDataClass.swift in Sources */,
+				6D1522D31DAC31B400709002 /* Bottle+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +320,7 @@
 				DEVELOPMENT_TEAM = B6V5UMD87T;
 				INFOPLIST_FILE = CellarTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.damienbannerot.ESGI16-TP01";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.damienbannerot.CellarTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -281,7 +333,7 @@
 				DEVELOPMENT_TEAM = B6V5UMD87T;
 				INFOPLIST_FILE = CellarTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.damienbannerot.ESGI16-TP01";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.damienbannerot.CellarTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -306,6 +358,7 @@
 				6D0A06711D9D20480091B5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import 
+//import 
 
 extension Domaine {
 
@@ -18,7 +18,7 @@ extension Domaine {
 
     @NSManaged public var name: String?
     @NSManaged public var location: String?
-    @NSManaged public var country: NSObject?
+    @NSManaged public var country: String?
     @NSManaged public var includeBottle: NSSet?
 
 }
