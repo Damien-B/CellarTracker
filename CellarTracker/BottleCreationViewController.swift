@@ -103,6 +103,7 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 				newType.value = typeTF.text!
 				try! CoreDataManager.shared.managedObjectContext.save()
 				self.loadDatas()
+				self.bottleTypePicker.selectRow(self.existingTypes.count-1, inComponent: 0, animated: true)
 			}
 		}))
 		typeAlert.addAction(UIAlertAction(title: "annuler", style: UIAlertActionStyle.cancel, handler: nil))
@@ -134,6 +135,7 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 				newDomain.location = locationTF.text!
 				try! CoreDataManager.shared.managedObjectContext.save()
 				self.loadDatas()
+				self.bottleDomainPicker.selectRow(self.existingDomains.count-1, inComponent: 0, animated: true)
 			}
 		}))
 		domainAlert.addAction(UIAlertAction(title: "annuler", style: UIAlertActionStyle.cancel, handler: nil))
@@ -193,12 +195,9 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 				newPrice.ofBottle = newBottle
 				
 				try! CoreDataManager.shared.managedObjectContext.save()
-				
+				// TODO: check why this is not working
+				self.dismiss(animated: true, completion: nil)
 			}
-		}
-		
-		self.dismiss(animated: true) { 
-			
 		}
 	}
 	
@@ -307,9 +306,9 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 	
 	// MARK: UIPickerViewDelegate
 
-	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		print("row n°\(row) selected")
-	}
+//	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//		print("row n°\(row) selected")
+//	}
 
 	// MARK: UITextFieldDelegate
 	
@@ -325,9 +324,7 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 			self.bottleImageView.image = image
 			self.imageSetted = true
 		}
-		self.dismiss(animated: true) { 
-			//
-		}
+		self.dismiss(animated: true)
 	}
 	
 	

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	var manager: CoreDataManager?
 	var bottlesArray: [Bottle] = []
+	var selectedBottle: Bottle?
 	
 	override func viewDidLoad() {
 		
@@ -37,6 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toDetailViewController" {
+			if let bottle = self.selectedBottle {
+				(segue.destination as! BottleDetailViewController).bottleObject = bottle
+			}
+		}
+	}
+	
 	// MARK: UITableViewDataSource
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,8 +62,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if (cell == nil) {
 			cell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier: "wineBottleTableViewCell") as? WineBottleTableViewCell
 		}
-		print(self.bottlesArray[indexPath.row].name!)
-		cell!.wineBottleNameLabel.text = "\(self.bottlesArray[indexPath.row].name!) \(self.bottlesArray[indexPath.row].year)"
+//		print(self.bottlesArray[indexPath.row].name!)
+		cell!.wineBottleNameLabel.text = "\(self.bottlesArray[indexPath.row].name!), \(self.bottlesArray[indexPath.row].year)"
 		cell!.wineBottleCountLabel.text = "\(self.bottlesArray[indexPath.row].count) 🍾"
 		cell!.wineBottleImageView.image = UIImage.init(data: self.bottlesArray[indexPath.row].image! as Data)
 		if let domain = self.bottlesArray[indexPath.row].fromDomain {
@@ -70,6 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		return cell!
 	}
+	
+	// MARK: UITableViewDelegate
 	
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		return true
@@ -87,5 +98,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
 		self.loadData()
 	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		var destinationView = BottleDetailViewController()
+//		destinationView.bottleObject = self.bottlesArray[indexPath.row]
+//		self.present(destinationView, animated: true, completion: nil)
+		self.selectedBottle = self.bottlesArray[indexPath.row]
+		self.performSegue(withIdentifier: "toDetailViewController", sender: self)
+	}
+	
 }
 

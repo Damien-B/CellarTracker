@@ -8,7 +8,7 @@
 
 import UIKit
 
-@UIApplicationMain
+@UIApplicationMain // TODO: (global) add bottle attributes + types + domains modification, UI changes, add bottle UITableView sections by types  
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
