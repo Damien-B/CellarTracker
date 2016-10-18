@@ -101,7 +101,8 @@ class CoreDataManager: NSObject {
 	func retrieveExistingBottles() -> [Bottle] {
 		var bottlesArray: [Bottle] = []
 		let bottleRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
-		bottleRequest.predicate = NSPredicate(format: "count > 0")
+		// commented for accessing bottles with 0 (count)
+//		bottleRequest.predicate = NSPredicate(format: "count > 0")
 		do {
 			let bottles = try self.managedObjectContext.fetch(bottleRequest) as [Bottle]
 			if bottles.count > 0 {
