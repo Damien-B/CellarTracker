@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var manager: CoreDataManager?
 	var bottlesArray: [Bottle] = []
 	var selectedBottle: Bottle?
+	var existingTypes: [Type] = []
 	
 	override func viewDidLoad() {
 		
@@ -33,7 +34,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	// MARK: Helpers
 	
 	func loadData() {
-		self.bottlesArray = CoreDataManager.shared.retrieveExistingBottles()
+		self.bottlesArray = CoreDataManager.shared.retrieveExistingBottles(ofType: CoreDataManager.shared.retrieveExistingTypes()[0])
+		self.existingTypes = CoreDataManager.shared.retrieveExistingTypes()
 		self.bottlesTableView.reloadData()
 
 	}
@@ -49,11 +51,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	// MARK: UITableViewDataSource
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return self.existingTypes.count
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.bottlesArray.count
+		
+		return CoreDataManager.shared.retrieveExistingBottles(ofType: self.existingTypes[section]).count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,22 +65,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if (cell == nil) {
 			cell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier: "wineBottleTableViewCell") as? WineBottleTableViewCell
 		}
+		
+		let tmpBottle = CoreDataManager.shared.retrieveExistingBottles(ofType: self.existingTypes[indexPath.section])[indexPath.row]
 //		print(self.bottlesArray[indexPath.row].name!)
-		cell!.wineBottleNameLabel.text = "\(self.bottlesArray[indexPath.row].name!), \(self.bottlesArray[indexPath.row].year)"
-		cell!.wineBottleCountLabel.text = "\(self.bottlesArray[indexPath.row].count) 🍾"
-		cell!.wineBottleImageView.image = UIImage.init(data: self.bottlesArray[indexPath.row].image! as Data)
-		if let domain = self.bottlesArray[indexPath.row].fromDomain {
+		cell!.wineBottleNameLabel.text = "\(tmpBottle.name!), \(tmpBottle.year)"
+		cell!.wineBottleCountLabel.text = "\(tmpBottle.count) 🍾"
+		cell!.wineBottleImageView.image = UIImage.init(data: tmpBottle.image! as Data)
+		if let domain = tmpBottle.fromDomain {
 			cell!.wineBottleDomainLabel.text = domain.name!
 		} else {
 			cell!.wineBottleDomainLabel.text = ""
 		}
-		if let type = self.bottlesArray[indexPath.row].isOfType {
+		if let type = tmpBottle.isOfType {
 			cell!.wineBottleTypeLabel.text = type.value!
 		} else {
 			cell!.wineBottleTypeLabel.text = ""
 		}
 		
 		return cell!
+	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return self.existingTypes[section].value!
 	}
 	
 	// MARK: UITableViewDelegate
@@ -92,18 +101,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		// CoreData deletion
-		CoreDataManager.shared.managedObjectContext.delete(self.bottlesArray[indexPath.row])
+		CoreDataManager.shared.managedObjectContext.delete(CoreDataManager.shared.retrieveExistingBottles(ofType: self.existingTypes[indexPath.section])[indexPath.row])
 		try! CoreDataManager.shared.managedObjectContext.save()
-		self.bottlesArray.remove(at: indexPath.row)
-		tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
+		tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
 		self.loadData()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		var destinationView = BottleDetailViewController()
-//		destinationView.bottleObject = self.bottlesArray[indexPath.row]
-//		self.present(destinationView, animated: true, completion: nil)
-		self.selectedBottle = self.bottlesArray[indexPath.row]
+		self.selectedBottle = CoreDataManager.shared.retrieveExistingBottles(ofType: self.existingTypes[indexPath.section])[indexPath.row]
 		self.performSegue(withIdentifier: "toDetailViewController", sender: self)
 	}
 	

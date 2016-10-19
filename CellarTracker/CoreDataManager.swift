@@ -102,7 +102,7 @@ class CoreDataManager: NSObject {
 		var bottlesArray: [Bottle] = []
 		let bottleRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
 		// commented for accessing bottles with 0 (count)
-//		bottleRequest.predicate = NSPredicate(format: "count > 0")
+		//		bottleRequest.predicate = NSPredicate(format: "count > 0")
 		do {
 			let bottles = try self.managedObjectContext.fetch(bottleRequest) as [Bottle]
 			if bottles.count > 0 {
@@ -118,7 +118,24 @@ class CoreDataManager: NSObject {
 		return bottlesArray
 	}
 	
-	
+	func retrieveExistingBottles(ofType type: Type) -> [Bottle] {
+		var bottlesArray: [Bottle] = []
+		let bottleRequest: NSFetchRequest<Bottle> = Bottle.fetchRequest()
+		bottleRequest.predicate = NSPredicate(format: "isOfType == %@", type)
+		do {
+			let bottles = try self.managedObjectContext.fetch(bottleRequest) as [Bottle]
+			if bottles.count > 0 {
+				for bottle in bottles {
+					bottlesArray.append(bottle)
+				}
+			} else {//DEBUG
+				print("no existing type")
+			}
+		} catch {
+			print("error fetching types")
+		}
+		return bottlesArray
+	}
 	
 	
 

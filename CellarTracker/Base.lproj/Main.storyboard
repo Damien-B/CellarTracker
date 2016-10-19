@@ -192,7 +192,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SOU-zw-aRR">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SOU-zw-aRR">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="ucO-YZ-oi2"/>
@@ -227,6 +227,7 @@
                                                                 <constraint firstItem="1Ko-ib-znZ" firstAttribute="leading" secondItem="aKR-60-rIu" secondAttribute="trailing" constant="10" id="NIz-1f-bUY"/>
                                                                 <constraint firstItem="Chq-S2-kS9" firstAttribute="top" secondItem="aKR-60-rIu" secondAttribute="bottom" id="NXk-5r-11x"/>
                                                                 <constraint firstItem="aKR-60-rIu" firstAttribute="leading" secondItem="QJv-Zs-ORw" secondAttribute="leading" constant="8" id="Oca-AE-2Fz"/>
+                                                                <constraint firstItem="1Ko-ib-znZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Chq-S2-kS9" secondAttribute="trailing" constant="10" id="SyY-al-R7w"/>
                                                                 <constraint firstItem="1Ko-ib-znZ" firstAttribute="top" secondItem="QJv-Zs-ORw" secondAttribute="top" constant="4" id="ZGq-jt-xWx"/>
                                                                 <constraint firstAttribute="trailing" secondItem="1Ko-ib-znZ" secondAttribute="trailing" constant="10" id="g6e-6M-hrm"/>
                                                                 <constraint firstItem="Chq-S2-kS9" firstAttribute="leading" secondItem="aKR-60-rIu" secondAttribute="leading" id="lFe-BS-PYh"/>
@@ -273,6 +274,7 @@
                                             <constraint firstItem="3aU-bO-wt0" firstAttribute="trailing" secondItem="dR9-PM-E2w" secondAttribute="trailing" id="dl3-ar-2gF"/>
                                             <constraint firstItem="GJv-TY-4Gu" firstAttribute="trailing" secondItem="dR9-PM-E2w" secondAttribute="trailing" id="fNX-hC-CpU"/>
                                             <constraint firstItem="EhN-w5-39h" firstAttribute="top" secondItem="FNg-ex-Bbg" secondAttribute="bottom" priority="250" constant="30" id="ffc-lq-1ea"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SOU-zw-aRR" secondAttribute="bottom" constant="20" id="hBt-lv-PRZ"/>
                                             <constraint firstItem="v6Q-ya-K72" firstAttribute="leading" secondItem="FNg-ex-Bbg" secondAttribute="trailing" constant="20" id="hhJ-V2-Wv3"/>
                                             <constraint firstItem="7ru-Cj-YYX" firstAttribute="centerY" secondItem="EhN-w5-39h" secondAttribute="centerY" id="m7c-eq-COO"/>
                                             <constraint firstAttribute="trailing" secondItem="dR9-PM-E2w" secondAttribute="trailing" constant="30" id="nW0-Ob-42i"/>

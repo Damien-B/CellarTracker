@@ -150,6 +150,8 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 			imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
 			imagePicker.allowsEditing = false
 			self.present(imagePicker, animated: true, completion: nil)
+		} else {
+			self.imageSetted = true
 		}
 	}
 	
