@@ -82,6 +82,7 @@ class BottleDetailViewController: UIViewController, UITableViewDataSource, UITab
 				self.bottleDomainLocationLabel.text = ""
 			}
 			self.bottleNameLabel.text = bottle.name
+			self.title = bottle.name
 			self.bottleYearLabel.text = "\(bottle.year)"
 			if let type = bottle.isOfType {
 				self.bottleTypeLabel.text = type.value

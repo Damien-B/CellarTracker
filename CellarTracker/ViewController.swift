@@ -70,17 +70,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //		print(self.bottlesArray[indexPath.row].name!)
 		cell!.wineBottleNameLabel.text = "\(tmpBottle.name!), \(tmpBottle.year)"
 		cell!.wineBottleCountLabel.text = "\(tmpBottle.count) 🍾"
+		if tmpBottle.count == 0 {
+			cell!.backgroundColor = UIColor.red
+		} else {
+			cell!.backgroundColor = UIColor.white
+		}
 		cell!.wineBottleImageView.image = UIImage.init(data: tmpBottle.image! as Data)
+		
+		// TODO: rename outlet
+		
+		if let prices = tmpBottle.cost {
+			let pricesArray = prices.allObjects
+			cell!.wineBottleTypeLabel.text = "\((pricesArray.last as! Price).value) €"
+		}
+		
 		if let domain = tmpBottle.fromDomain {
 			cell!.wineBottleDomainLabel.text = domain.name!
 		} else {
 			cell!.wineBottleDomainLabel.text = ""
 		}
-		if let type = tmpBottle.isOfType {
-			cell!.wineBottleTypeLabel.text = type.value!
-		} else {
-			cell!.wineBottleTypeLabel.text = ""
-		}
+//		if let type = tmpBottle.isOfType {
+//			cell!.wineBottleTypeLabel.text = type.value!
+//		} else {
+//			cell!.wineBottleTypeLabel.text = ""
+//		}
 		
 		return cell!
 	}

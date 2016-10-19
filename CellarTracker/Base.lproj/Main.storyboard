@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fx0-zM-18X" id="CQG-rR-Bjg">
-                                            <frame key="frameInset" width="375" height="110"/>
+                                            <frame key="frameInset" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picturePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oYt-B9-B3m">
@@ -35,6 +35,12 @@
                                                         <constraint firstAttribute="width" secondItem="oYt-B9-B3m" secondAttribute="height" multiplier="4:5" id="lYG-QY-x4t"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgG-y3-Czy">
+                                                    <color key="backgroundColor" red="0.5490196078431373" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="teL-sb-xhS"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-jR-6Nj">
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-0U-iQq">
@@ -58,7 +64,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="oFl-KU-s94" firstAttribute="leading" secondItem="VU5-jR-6Nj" secondAttribute="leading" id="75v-pf-Ein"/>
                                                         <constraint firstItem="C8i-rq-pwR" firstAttribute="baseline" secondItem="oFl-KU-s94" secondAttribute="baseline" id="7Qa-VL-k9S"/>
@@ -77,9 +82,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VU5-jR-6Nj" firstAttribute="top" secondItem="CQG-rR-Bjg" secondAttribute="top" constant="5" id="66u-iQ-xvB"/>
+                                                <constraint firstItem="rgG-y3-Czy" firstAttribute="leading" secondItem="CQG-rR-Bjg" secondAttribute="leading" id="C9L-6w-XyT"/>
                                                 <constraint firstAttribute="bottom" secondItem="oYt-B9-B3m" secondAttribute="bottom" id="KOb-sw-RgX"/>
                                                 <constraint firstAttribute="trailing" secondItem="VU5-jR-6Nj" secondAttribute="trailing" constant="10" id="Lgi-ud-yyc"/>
                                                 <constraint firstAttribute="bottom" secondItem="VU5-jR-6Nj" secondAttribute="bottom" id="Y7p-oc-8Bn"/>
+                                                <constraint firstAttribute="trailing" secondItem="rgG-y3-Czy" secondAttribute="trailing" id="YEG-F5-39X"/>
+                                                <constraint firstAttribute="bottom" secondItem="rgG-y3-Czy" secondAttribute="bottom" id="aYy-2Z-j4l"/>
                                                 <constraint firstItem="oYt-B9-B3m" firstAttribute="leading" secondItem="CQG-rR-Bjg" secondAttribute="leading" id="fq4-GM-RiP"/>
                                                 <constraint firstItem="oYt-B9-B3m" firstAttribute="top" secondItem="CQG-rR-Bjg" secondAttribute="top" id="ma6-LN-J4s"/>
                                                 <constraint firstItem="VU5-jR-6Nj" firstAttribute="leading" secondItem="oYt-B9-B3m" secondAttribute="trailing" constant="10" id="ny9-Vy-oY7"/>
@@ -123,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959" y="139"/>
+            <point key="canvasLocation" x="957.60000000000002" y="138.98050974512745"/>
         </scene>
         <!--Bottle Detail View Controller-->
         <scene sceneID="ezz-q1-o3v">
@@ -202,7 +210,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="286" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V4V-t5-Q6I" id="QJv-Zs-ORw">
-                                                            <frame key="frameInset" width="286" height="43"/>
+                                                            <frame key="frameInset" width="286" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKR-60-rIu">
@@ -700,27 +708,18 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="bottleCapacityLabel" destination="Toh-Qo-rsg" id="cZu-0z-i97"/>
                         <outlet property="bottleCapacityTextField" destination="cgT-qV-pBS" id="7kM-hA-s10"/>
-                        <outlet property="bottleCommentLabel" destination="4kY-ON-qIl" id="3GL-uT-ssa"/>
                         <outlet property="bottleCommentTextView" destination="uLQ-uZ-ZKy" id="uuz-Wu-ocA"/>
                         <outlet property="bottleCountFeedbackLabel" destination="UBg-c0-Eyh" id="LfH-8S-c21"/>
-                        <outlet property="bottleCountLabel" destination="zZm-6p-Pdw" id="lEt-q9-414"/>
                         <outlet property="bottleCountStepper" destination="DYi-1y-Max" id="byQ-pb-qcN"/>
                         <outlet property="bottleDomainAddButton" destination="5vQ-LC-jOu" id="6m4-zW-Fm5"/>
-                        <outlet property="bottleDomainLabel" destination="nHY-QT-QF2" id="GUK-xl-roa"/>
                         <outlet property="bottleDomainPicker" destination="zcv-G2-f3N" id="8yg-py-Rba"/>
                         <outlet property="bottleImageView" destination="sOd-5u-AJy" id="TP7-Mn-HJV"/>
-                        <outlet property="bottleNameLabel" destination="fEw-fd-UHb" id="bbc-Qf-p7X"/>
                         <outlet property="bottleNameTextField" destination="GR3-dN-fuX" id="lHp-bV-47z"/>
-                        <outlet property="bottlePriceCommentLabel" destination="b8v-d4-VMP" id="uwt-RJ-BvS"/>
                         <outlet property="bottlePriceCommentTextView" destination="sd7-oR-hM2" id="oD2-BZ-Ez1"/>
-                        <outlet property="bottlePriceLabel" destination="Roa-xQ-v8y" id="H95-QJ-FcD"/>
                         <outlet property="bottlePriceTextField" destination="Wce-Gz-dIA" id="hBS-GB-uuf"/>
                         <outlet property="bottleTypeAddButton" destination="rMC-1v-TeS" id="OyG-HS-il9"/>
-                        <outlet property="bottleTypeLabel" destination="ZDZ-mr-amS" id="IeE-Og-r41"/>
                         <outlet property="bottleTypePicker" destination="2VH-LF-vZ9" id="SyZ-gp-jqX"/>
-                        <outlet property="bottleYearLabel" destination="0eu-th-4D0" id="0tB-3e-K7C"/>
                         <outlet property="bottleYearPicker" destination="NTJ-yP-nii" id="bcA-7l-osQ"/>
                         <outlet property="parentView" destination="NyF-PG-dpX" id="Jd8-aF-ln8"/>
                         <outlet property="parentViewBottomConstraint" destination="pii-AS-9g4" id="B3L-6N-KH0"/>

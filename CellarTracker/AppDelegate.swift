@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let coreDataManager = CoreDataManager.shared
 		coreDataManager.createDefaultDatasIfNecessary()
+		self.window!.tintColor = UIColor(red: 140.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
 		
 		return true
 	}

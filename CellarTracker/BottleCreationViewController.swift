@@ -15,26 +15,17 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 	@IBOutlet weak var parentView: UIView!
 	
 	@IBOutlet weak var bottleImageView: UIImageView!
-	@IBOutlet weak var bottleNameLabel: UILabel!
 	@IBOutlet weak var bottleNameTextField: UITextField!
-	@IBOutlet weak var bottleCapacityLabel: UILabel!
 	@IBOutlet weak var bottleCapacityTextField: UITextField!
-	@IBOutlet weak var bottleCommentLabel: UILabel!
 	@IBOutlet weak var bottleCommentTextView: UITextView!
-	@IBOutlet weak var bottleCountLabel: UILabel!
 	@IBOutlet weak var bottleCountStepper: UIStepper!
 	@IBOutlet weak var bottleCountFeedbackLabel: UILabel!
-	@IBOutlet weak var bottleYearLabel: UILabel!
 	@IBOutlet weak var bottleYearPicker: UIPickerView!
-	@IBOutlet weak var bottleTypeLabel: UILabel!
 	@IBOutlet weak var bottleTypePicker: UIPickerView!
 	@IBOutlet weak var bottleTypeAddButton: UIButton!
-	@IBOutlet weak var bottleDomainLabel: UILabel!
 	@IBOutlet weak var bottleDomainPicker: UIPickerView!
 	@IBOutlet weak var bottleDomainAddButton: UIButton!
-	@IBOutlet weak var bottlePriceLabel: UILabel!
 	@IBOutlet weak var bottlePriceTextField: UITextField!
-	@IBOutlet weak var bottlePriceCommentLabel: UILabel!
 	@IBOutlet weak var bottlePriceCommentTextView: UITextView!
 	
 	@IBOutlet weak var parentViewBottomConstraint: NSLayoutConstraint!
@@ -108,11 +99,10 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 		}))
 		typeAlert.addAction(UIAlertAction(title: "annuler", style: UIAlertActionStyle.cancel, handler: nil))
 		self.present(typeAlert, animated: true, completion: nil)
-		
 	}
 	
 	@IBAction func addDomainButtonClicked(_ sender: UIButton) {
-		let domainAlert = UIAlertController(title: "ajouter un type de vin", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+		let domainAlert = UIAlertController(title: "ajouter un domaine", message: nil, preferredStyle: UIAlertControllerStyle.alert)
 		domainAlert.addTextField { (nameTextField) in
 			nameTextField.placeholder = "name"
 			self.domainNameTextField = nameTextField
@@ -145,9 +135,16 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 	
 	@IBAction func tapOnBottleImageView(_ sender: AnyObject) {
 		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+			// TODO: ajouter une alert view pour choix entre photo & library
 			let imagePicker = UIImagePickerController()
 			imagePicker.delegate = self
 			imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+			imagePicker.allowsEditing = false
+			self.present(imagePicker, animated: true, completion: nil)
+		} else if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+			let imagePicker = UIImagePickerController()
+			imagePicker.delegate = self
+			imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
 			imagePicker.allowsEditing = false
 			self.present(imagePicker, animated: true, completion: nil)
 		} else {
@@ -159,6 +156,7 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 		self.view.endEditing(true)
 	}
 	
+	// TODO: ajouter des restrictions pour les inputs (+ feedback)
 	@IBAction func saveBottleObject(_ sender: AnyObject) {
 		self.checkIfInputsAreFilled { (error) in
 			if let error = error {
@@ -199,8 +197,12 @@ class BottleCreationViewController: UIViewController, UIPickerViewDataSource, UI
 				try! CoreDataManager.shared.managedObjectContext.save()
 				// TODO: check why this is not working
 				self.dismiss(animated: true, completion: nil)
+				let successAlert = UIAlertController(title: "bouteille ajouté avec succès !", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+				successAlert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+				self.present(successAlert, animated: true, completion: nil)
 			}
 		}
+		self.loadDatas()
 	}
 	
 	// MARK: Helpers
